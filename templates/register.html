@@ -1,0 +1,62 @@
+
+{% extends "base.html" %}
+
+{% block title %}Register | Secure Student Portal{% endblock %}
+
+{% block content %}
+<section class="auth-card">
+    <h1>Create Your Account</h1>
+    <p class="subtitle">Register to access the Secure Student Portal.</p>
+
+    <form method="POST" action="{{ url_for('register') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        <div class="form-group">
+            <label for="username">Username</label>
+            <input
+                type="text"
+                id="username"
+                name="username"
+                minlength="3"
+                maxlength="50"
+                autocomplete="username"
+                placeholder="Choose a username"
+                required
+            >
+ </div> 
+
+             <div class="form-group">
+                 <label for="email">Email Address</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    maxlength="254"
+                    autocomplete="email"
+                    placeholder="Enter your email address"
+                    required    >
+</div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                minlength="8"
+                autocomplete="new-password"
+                placeholder="Create a strong password"
+                required
+            >
+            <small>Use at least 8 characters.</small>
+        </div>
+
+        <button type="submit" class="primary-button">Create Account</button>
+    </form>
+
+    <p class="auth-switch">
+        Already have an account?
+        <a href="{{ url_for('login') }}">Log in here</a>
+    </p>
+</section>
+{% endblock %}

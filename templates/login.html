@@ -1,0 +1,47 @@
+
+{% extends "base.html" %}
+
+{% block title %}Login | Secure Student Portal{% endblock %}
+
+{% block content %}
+<section class="auth-card">
+    <h1>Welcome Back</h1>
+    <p class="subtitle">Log in to access your student dashboard.</p>
+
+    <form method="POST" action="{{ url_for('login') }}">
+        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+        <div class="form-group">
+    <label for="email">Email Address</label>
+    <input
+        type="email"
+        id="email"
+        name="email"
+        maxlength="254"
+        autocomplete="email"
+        placeholder="Enter your email address"
+        required
+    >
+</div>
+
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input
+                type="password"
+                id="password"
+                name="password"
+                autocomplete="current-password"
+                placeholder="Enter your password"
+                required
+            >
+        </div>
+
+        <button type="submit" class="primary-button">Log In</button>
+    </form>
+
+    <p class="auth-switch">
+        Don't have an account?
+        <a href="{{ url_for('register') }}">Register here</a>
+    </p>
+</section>
+{% endblock %}

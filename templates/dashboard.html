@@ -1,0 +1,34 @@
+
+{% extends "base.html" %}
+
+{% block title %}Dashboard | Secure Student Portal{% endblock %}
+
+{% block content %}
+<section class="dashboard-header">
+    <h1>Student Dashboard</h1>
+    <p>Welcome, <strong>{{ username }}</strong>!</p>
+    <p class="subtitle">
+        Your secure space for managing student documents.
+    </p>
+</section>
+
+<section class="dashboard-grid">
+    <article class="dashboard-card">
+        <h2>My Documents</h2>
+        <p>
+            Your personal document area will appear here.
+            Secure uploads and downloads are coming in a later stage.
+        </p>
+        <span class="status-label">Coming Soon</span>
+    </article>
+
+    <article class="dashboard-card">
+        <h2>Account Security</h2>
+        <p>
+            You are viewing a protected page intended for authenticated
+            students.
+        </p>
+        <span class="status-label">Authentication</span>
+    </article>
+</section>
+{% endblock %}
