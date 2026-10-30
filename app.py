@@ -20,6 +20,7 @@ if not app.config["SECRET_KEY"]:
     raise RuntimeError("Create a .env file with SECRET_KEY.")
 
 app.config["SESSION_COOKIE_HTTPONLY"] = True
+app.config["SESSION_COOKIE_SECURE"] = os.getenv("RENDER") == "true"
 app.config["SESSION_COOKIE_SAMESITE"] = "Lax"
 CSRFProtect(app)
 
